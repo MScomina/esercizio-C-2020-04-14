@@ -98,6 +98,11 @@ int main(int argc, char *arcv[]) {
 contact_type * create_contact(char * name, char * phone) {
 	contact_type *output;
 	output = malloc(sizeof(contact_type));
+	if(output == NULL) {
+		printf("errore in create_contact!\n");
+		exit(1);
+		return NULL;
+	}
 	(*output).id = counter;
 	counter++;
 	for(int k = 0; k<NAME_LEN; k++) {
@@ -105,10 +110,6 @@ contact_type * create_contact(char * name, char * phone) {
 	}
 	for(int k = 0; k<PHONE_LEN; k++) {
 		(*output).phone[k] = phone[k];
-	}
-	if(output == NULL) {
-		printf("errore in create_contact!\n");
-		exit(1);
 	}
 	return output;
 }
