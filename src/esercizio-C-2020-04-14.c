@@ -201,7 +201,7 @@ void bubble_sort(contact_type ** array) {
 
 		for (int i = 1; i < n; i++) {
 			if(array[i] != NULL)
-			if ((array[i-1] == NULL && array[i] != NULL) || compare_contacts(array[i-1], array[i]) > 0) {
+			if (array[i-1] == NULL || compare_contacts(array[i-1], array[i]) > 0) {
 				swap_contacts(array[i-1], array[i]);
 				newn = i;
 			}
