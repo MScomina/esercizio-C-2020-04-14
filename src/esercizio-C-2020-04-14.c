@@ -105,12 +105,17 @@ contact_type * create_contact(char * name, char * phone) {
 	}
 	(*output).id = counter;
 	counter++;
+	strcpy((*output).name, name);
+	strcpy((*output).phone, phone);
+	//Può funzionare anche così, senza usare le funzioni sulle stringhe:
+	/*
 	for(int k = 0; k<NAME_LEN; k++) {
 		(*output).name[k] = name[k];
 	}
 	for(int k = 0; k<PHONE_LEN; k++) {
 		(*output).phone[k] = phone[k];
 	}
+	*/
 	return output;
 }
 
